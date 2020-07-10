@@ -1,0 +1,15 @@
+<div class="content"
+     fxFlex>
+    <ul class="nav justify-content-end">
+        <li *ngIf="hasGarage" class="nav-item">
+            <a class="nav-link"
+               href="dashboard">Dashboard</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link"
+               href="login"
+               (click)="logout()">Logout</a>
+        </li>
+    </ul>
+    <router-outlet></router-outlet>
+</div>

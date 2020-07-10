@@ -1,0 +1,52 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col lg-4"></div>
+        <div class="col-lg-4">
+            <form [formGroup]="createVehicleForm" (ngSubmit)="createVehicle()">
+                <div class="form-group">
+                    <label for="makeNameInput">Make</label>
+                    <input type="text"
+                           class="form-control"
+                           id="makeNameInput"
+                           formControlName="make">
+                </div>
+                <div *ngIf="make.touched && make.errors?.required" class="alert alert-danger">
+                    This field is required.
+                </div>
+                <div class="form-group">
+                    <label for="modelNameInput">Model</label>
+                    <input type="text"
+                           class="form-control"
+                           id="modelNameInput"
+                           formControlName="model">
+                </div>
+                <div *ngIf="model.touched && model.errors?.required" class="alert alert-danger">
+                    This field is required.
+                </div>
+                <div class="form-group">
+                    <label for="colorNameInput">Color</label>
+                    <input type="text"
+                           class="form-control"
+                           id="colorNameInput"
+                           formControlName="color">
+                </div>
+                <div *ngIf="color.touched && color.errors?.required" class="alert alert-danger">
+                    This field is required.
+                </div>
+                <div class="form-group">
+                    <label for="registryNumberNameInput">Registry Number</label>
+                    <input type="text"
+                           class="form-control"
+                           id="registryNumberNameInput"
+                           formControlName="registryNumber">
+                </div>
+                <div *ngIf="registryNumber.touched && registryNumber.errors?.required" class="alert alert-danger">
+                    This field is required.
+                </div>
+                <button type="submit"
+                        class="btn btn-primary">Register Vehicle</button>
+            </form>
+        </div>
+        <div class="col lg-4"></div>
+    </div>
+<div>

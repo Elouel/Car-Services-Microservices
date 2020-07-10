@@ -1,0 +1,13 @@
+<div class="m-5" style="background-color: #fff; height: 100%;">
+  <ng-container *ngIf='isOperator'>
+    <app-dashboard-operator></app-dashboard-operator>
+  </ng-container>
+
+  <ng-container *ngIf='isAdmin'>
+    <app-dashboard-admin></app-dashboard-admin>
+  </ng-container>
+
+  <ng-container *ngIf='isSalesman'>
+    <app-dashboard-salesman></app-dashboard-salesman>
+  </ng-container>
+</div>

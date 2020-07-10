@@ -1,0 +1,55 @@
+<nav style="background-color: #e3e3e3;">
+  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+    <a class="nav-item nav-link active" id="nav-jobs-tab" data-toggle="tab" href="#nav-jobs"
+        role="tab" aria-controls="nav-jobs" aria-selected="false">My Jobs</a>
+    <a class="nav-item nav-link" id="nav-departments-tab" data-toggle="tab" href="#nav-departments"
+        role="tab" aria-controls="nav-departments" aria-selected="true">Departments</a>
+  </div>
+</nav>
+<div class="tab-content" id="nav-tabContent">
+  <div class="tab-pane fade show m-3 active" id="nav-jobs" role="tabpanel" aria-labelledby="nav-jobs-tab">
+
+    <h5 class="w-50 d-inline">My Jobs</h5>
+
+    <table class="table mt-3">
+      <thead>
+        <tr>
+          <th scope="col">Created At</th>
+          <th scope="col">Deadline</th>
+          <th scope="col">Make</th>
+          <th scope="col">Model</th>
+          <th scope="col">Reg.#</th>
+          <th scope="col">Status</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let job of jobs">
+          <th>
+            <button type="button" *ngIf="isStarted(job?.jobStatus)"
+              class="btn btn-primary btn-md"
+              (click)="finishJob(job?.id)">Finish Job</button>
+          </th>
+          <td>{{job.createdDate}}</td>
+          <td>{{job.deadLine}}</td>
+          <td>{{job.vehicle.make}}</td>
+          <th>{{job.vehicle.model}}</th>
+          <td>{{job.vehicle.registryNumber}}</td>
+          <td>{{getStatus(job.jobStatus)}}</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+  <div class="tab-pane fade show m-3" id="nav-departments" role="tabpanel" aria-labelledby="nav-departments-tab">
+
+      <h5 class="w-50 d-inline">Departments</h5>
+
+      <ul class="list-group list-group-flush">
+          <li *ngFor="let department of garage?.departments"
+              (click)="navigateToDepartment(department?.id)"
+              class="list-group-item">{{department.name}}</li>
+      </ul>
+
+  </div>
+</div>
